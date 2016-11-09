@@ -27,11 +27,23 @@
 
 1. gulp.task
 
-	gulp.task(name,[,dep],fn)
+####gulp.task(name,[,dep],fn)
 
-	gulp.src(glob[,options])
+Register a task name with a function. Optionally declare dependencies.
 
-	gulp.dest(folder[,options])
+####gulp.src(glob[,options])
 
-	gulp.watch(glob[,options],tasks)
+Takes a file system glob(set of files)
+Emits files that match
+Optionally specify options to apply to the glob
 
+####gulp.dest(folder[,options])
+
+Piped files are written to the file system.
+Optionally specify options to apply to the output folder
+(cwd or mode for permissions)
+
+####gulp.watch(glob[,options],tasks)
+
+Run one or more tasks when a file matched by the glob changes
+Array of task names
