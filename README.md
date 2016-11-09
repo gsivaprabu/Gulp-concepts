@@ -1,4 +1,6 @@
-# 1.Introduction
+**#Gulp Concepts**
+
+## 1.Introduction
 
 1. Why use a Task runner ?
 
@@ -15,7 +17,7 @@
 - Code Analysis
 
 
-# 2. Automate Task
+## 2. Automate Task
 
 1. Code Quality
 2. Tests
