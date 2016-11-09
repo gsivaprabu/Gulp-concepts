@@ -23,7 +23,7 @@
 2. Tests
 3. Build Pipeline
 
-# 3. Over View of Gulp API's
+## 3. Over View of Gulp API's
 
 1. gulp.task
 
