@@ -123,3 +123,7 @@ Callback is passed **event** object with **type** and **path**
 5. Creating a watch task to compile css
 	- **gulp less-watcher** for watching all less changes
 	- If you change any thin in styles.less we can monitor in console
+
+6. handling error using gulp plumber
+	- **npm install --save-dev gulp-plumber**
+	- call this package we can debugg the css

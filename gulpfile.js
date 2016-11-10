@@ -26,6 +26,7 @@ gulp.task('styles', ['clean-styles'], function() {
     log('compiling less => css');
     return gulp
         .src(config.less) //TODO add the file
+        .pipe($.plumber())
         .pipe($.less())
         .pipe($.autoprefixer({ browsers: ['last 2 versions', '> 5%'] }))
         .pipe(gulp.dest(config.temp));
