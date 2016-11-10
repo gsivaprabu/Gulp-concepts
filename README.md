@@ -112,3 +112,5 @@ Callback is passed **event** object with **type** and **path**
 		});
 
 	- Finally run the **gulp styles**
+
+4.
