@@ -127,3 +127,10 @@ Callback is passed **event** object with **type** and **path**
 6. handling error using gulp plumber
 	- **npm install --save-dev gulp-plumber**
 	- call this package we can debugg the css
+
+##7. HTML Injection
+
+1. Gulp and HTML injection
+ - How Gulp can alleviate this problem by injecting the javascript and css files into the index HTML automatically
+
+2.
