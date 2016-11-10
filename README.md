@@ -118,4 +118,8 @@ Callback is passed **event** object with **type** and **path**
 	- We need to clean that file
 	- Install the del package
 	- **npm install --save -dev del**
+	- Add callback functions
 
+5. Creating a watch task to compile css
+	- **gulp less-watcher** for watching all less changes
+	- If you change any thin in styles.less we can monitor in console

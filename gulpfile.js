@@ -31,15 +31,22 @@ gulp.task('styles', ['clean-styles'], function() {
         .pipe(gulp.dest(config.temp));
 });
 
-gulp.task('clean-styles', function(done) {
+gulp.task('clean-styles', function() {
     var files = config.temp + '**/*.css';
-    clean(files, done);
+    clean(files);
 });
 
-function clean(path, done) {
-    $.util.log('cleaning : ' + $.util.colors.red(path));
-    del(path, done);
+
+gulp.task('less-watcher', function() {
+    gulp.watch([config.less], ['styles']);
+});
+
+
+function clean(path) {
+    log('Cleaning: ' + $.util.colors.magenta(path));
+    del(path);
 }
+
 
 function log(msg) {
     if (typeof(msg) === 'object') {
