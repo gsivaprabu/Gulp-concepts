@@ -113,4 +113,9 @@ Callback is passed **event** object with **type** and **path**
 
 	- Finally run the **gulp styles**
 
-4.
+4. Deleting files in dependency task
+	- Every time overite the .temp folder css
+	- We need to clean that file
+	- Install the del package
+	- **npm install --save -dev del**
+
