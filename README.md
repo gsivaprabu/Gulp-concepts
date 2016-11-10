@@ -96,3 +96,19 @@ Callback is passed **event** object with **type** and **path**
 	- Automated
 	- Up to date from [caniuse.com](caniuse.com)
 	- customizable
+
+3. Creating a Less and AutoPrefixer Gulp Task
+	- Here we install two packages
+		- npm install --save-dev gulp-less gulp-autoprefixer
+	- After installation configure the settings
+
+		gulp.task('styles', function() {
+	    log('compiling less => css');
+	    return gulp
+	        .src(config.less) //TODO add the file
+	        .pipe($.less())
+	        .pipe($.autoprefixer({ browsers: ['last 2 versions', '> 5%'] }))
+	        .pipe(gulp.dest(config.temp));
+		});
+
+	- Finally run the **gulp styles**
