@@ -198,3 +198,4 @@ Callback is passed **event** object with **type** and **path**
 
  	- exit
 
+## 9. Using your project syn with Browser
