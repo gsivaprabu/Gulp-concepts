@@ -5,7 +5,6 @@
         .module('app.layout')
         .controller('Shell', Shell);
 
-    Shell.$inject = ['$timeout', 'config', 'logger'];
     /* @ngInject */
     function Shell($timeout, config, logger) {
         var vm = this;

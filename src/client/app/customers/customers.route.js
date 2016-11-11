@@ -5,7 +5,6 @@
         .module('app.customers')
         .run(appRun);
 
-    appRun.$inject = ['routerHelper'];
     /* @ngInject */
     function appRun(routerHelper) {
         routerHelper.configureStates(getStates());
@@ -16,7 +15,7 @@
             {
                 state: 'customer',
                 config: {
-                    absract: true,
+                    abstract: true,
                     template: '<ui-view class="shuffle-animation"/>',
                     url: '/customer'
                 }

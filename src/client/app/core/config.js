@@ -5,7 +5,6 @@
 
     core.config(toastrConfig);
 
-    toastrConfig.$inject = ['toastr'];
     /* @ngInject */
     function toastrConfig(toastr) {
         toastr.options.timeOut = 4000;
@@ -24,10 +23,13 @@
     core.config(configure);
 
     configure.$inject = ['$compileProvider', '$logProvider',
-                         'routerHelperProvider', 'exceptionHandlerProvider'];
+         'diagnostics', 'exceptionHandlerProvider', 'routerHelperProvider'];
     /* @ngInject */
     function configure ($compileProvider, $logProvider,
-                         routerHelperProvider, exceptionHandlerProvider) {
+         diagnostics, exceptionHandlerProvider, routerHelperProvider) {
+
+        diagnostics.enable = false;
+
         $compileProvider.debugInfoEnabled(false);
 
         // turn debugging off/on (no info or warn)
@@ -40,15 +42,11 @@
         ////////////////
 
         function configureStateHelper() {
-            var resolveAlways = {
-                ready: ready
+            var resolveAlways = { /* @ngInject */
+                ready: function(dataservice) {
+                    return dataservice.ready();
+                }
             };
-
-            ready.$inject = ['dataservice'];
-            /* @ngInject */
-            function ready(dataservice) {
-                return dataservice.ready();
-            }
 
             routerHelperProvider.configure({
                 docTitle: 'Gulp: ',

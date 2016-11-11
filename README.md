@@ -133,4 +133,43 @@ Callback is passed **event** object with **type** and **path**
 1. Gulp and HTML injection
  - How Gulp can alleviate this problem by injecting the javascript and css files into the index HTML automatically
 
-2.
+2. Exploring wiredep and gulp-inject
+	-  gather the bower files  and inject into HTML
+
+3. Adding Bower Files and Your JavaScript to the HTML
+
+4. Removing Scripts and Styles From the Main HTML
+
+5. Adding Bower Files Automatically on Install
+	- post install script [Run wiredep after before install]
+
+6. Injecting Custom CSS
+	- gulp-inject  Inject  CSS in to HTML
+
+##### EXAMPLE
+
+	gulp.task('wiredep', function() {
+    log('Wire up the bower css js and our app js into the html');
+    var options = config.getWiredepDefaultOptions();
+    var wiredep = require('wiredep').stream;
+
+    return gulp
+        .src(config.index)
+        .pipe(wiredep(options))
+        .pipe($.inject(gulp.src(config.js)))
+        .pipe(gulp.dest(config.client));
+	});
+
+
+
+
+	gulp.task('inject', ['wiredep', 'styles'], function() {
+    log('Wire up the app css into the html, and call wiredep ');
+
+    return gulp
+        .src(config.index)
+        .pipe($.inject(gulp.src(config.css)))
+        .pipe(gulp.dest(config.client));
+	});
+
+

@@ -5,9 +5,9 @@
         .module('app.core')
         .factory('dataservice', dataservice);
 
-    dataservice.$inject = ['$http', '$location', '$q', 'exception', 'logger'];
     /* @ngInject */
     function dataservice($http, $location, $q, exception, logger) {
+        /* jshint validthis:true */
         var readyPromise;
 
         var service = {
@@ -21,26 +21,30 @@
         function getCustomer(id) {
             return $http.get('/api/customer/' + id)
                 .then(getCustomerComplete)
-                .catch(function(message) {
-                    exception.catcher('XHR Failed for getCustomer')(message);
-                    $location.url('/');
-                });
+                .catch(getCustomerFailed);
 
             function getCustomerComplete(data, status, headers, config) {
                 return data.data;
+            }
+
+            function getCustomerFailed(e) {
+                $location.url('/');
+                return exception.catcher('XHR Failed for getCustomer')(e);
             }
         }
 
         function getCustomers() {
             return $http.get('/api/customers')
                 .then(getCustomersComplete)
-                .catch(function(message) {
-                    exception.catcher('XHR Failed for getCustomers')(message);
-                    $location.url('/');
-                });
+                .catch(getCustomersFailed);
 
             function getCustomersComplete(data, status, headers, config) {
                 return data.data;
+            }
+
+            function getCustomersFailed(e) {
+                $location.url('/');
+                return exception.catcher('XHR Failed for getCustomers')(e);
             }
         }
 

@@ -5,7 +5,6 @@
         .module('app.layout')
         .controller('Sidebar', Sidebar);
 
-    Sidebar.$inject = ['$state', 'routerHelper'];
     /* @ngInject */
     function Sidebar($state, routerHelper) {
         var vm = this;

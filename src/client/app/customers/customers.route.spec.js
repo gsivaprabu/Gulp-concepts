@@ -1,7 +1,6 @@
 /* jshint -W117, -W030 */
 describe('customers', function() {
     describe('state', function() {
-        var controller;
         var views = {
             customers: 'app/customers/customers.html',
             customerdetail: 'app/customers/customer-detail.html'
@@ -9,7 +8,7 @@ describe('customers', function() {
 
         beforeEach(function() {
             module('app.customers', bard.fakeToastr);
-            bard.inject('$location', '$rootScope', '$state', '$templateCache');
+            bard.inject(this, '$location', '$rootScope', '$state', '$templateCache');
         });
 
         beforeEach(function() {
