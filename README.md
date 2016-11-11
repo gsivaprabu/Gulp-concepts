@@ -173,3 +173,28 @@ Callback is passed **event** object with **type** and **path**
 	});
 
 
+## 8. Serving your Dev Build
+
+1.  Serving your developement Build
+	-  Takes multiple steps to serve your code
+	-  Reduce to 1 step
+	-  Restart when server code changes
+	-  Must be fast.
+
+2. Serving nodemon in Gulp Task
+	- gulp serve-dev
+	- **nodemon** used for  restart the node server.
+		- watch file changes
+		- Handle Events
+
+3. Prepare serve and restart the code
+
+- nodemon change events
+ 	- restart
+
+ 	- start
+
+ 	- crash
+
+ 	- exit
+
